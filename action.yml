@@ -349,7 +349,7 @@ runs:
       if: always()
       env:
         POSTMAN_TEAM_ID: ${{ inputs.postman-team-id }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: postman-test-results
         path: ${{ runner.temp }}/postman-junit/*.xml

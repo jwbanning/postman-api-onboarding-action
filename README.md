@@ -41,7 +41,7 @@ jobs:
       actions: write
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: postman-cs/postman-api-onboarding-action@v0
         with:
           project-name: core-payments
@@ -69,7 +69,7 @@ jobs:
       contents: write
       variables: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: postman-cs/postman-api-onboarding-action@v0
         with:
           project-name: core-payments

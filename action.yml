@@ -252,7 +252,11 @@ runs:
         workspace-admin-user-ids: ${{ inputs.workspace-admin-user-ids }}
         workspace-team-id: ${{ inputs.workspace-team-id }}
         spec-url: ${{ inputs.spec-url }}
-        spec-path: ${{ inputs.spec-path }}
+        # Only forward spec-path to bootstrap when spec-url is empty so that
+        # legacy callers passing both (spec-url for bootstrap, spec-path for
+        # repo metadata) keep working under the bootstrap action's one-of
+        # contract.
+        spec-path: ${{ inputs.spec-url == '' && inputs.spec-path || '' }}
         governance-mapping-json: ${{ inputs.governance-mapping-json }}
         postman-api-key: ${{ inputs.postman-api-key }}
         postman-access-token: ${{ inputs.postman-access-token }}

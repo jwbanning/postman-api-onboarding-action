@@ -252,12 +252,14 @@ describe('postman-api-onboarding-action composite contract', () => {
       const insightsStep = steps.find((step) => step.id === 'insights_onboarding');
 
       expect(validateStep?.shell).toBe('bash');
-      expect(bootstrapStep?.uses).toBe('postman-cs/postman-bootstrap-action@v0.13.0');
+      expect(bootstrapStep?.uses).toBe('postman-cs/postman-bootstrap-action@main');
       expect(repoSyncStep?.uses).toBe('postman-cs/postman-repo-sync-action@v0.13.0');
       expect(junitStep?.shell).toBe('bash');
       expect(uploadStep?.uses).toBe('actions/upload-artifact@v6');
       expect(insightsStep?.uses).toBe('postman-cs/postman-insights-onboarding-action@v0.9.0');
-      for (const step of [bootstrapStep, repoSyncStep, insightsStep]) {
+      // bootstrap is intentionally floating on @main during the spec-path rollout;
+      // re-pin to the next bootstrap tag (v0.14.0) once it ships.
+      for (const step of [repoSyncStep, insightsStep]) {
         expect(step?.uses).not.toMatch(/@(main|v0)$/);
       }
     });

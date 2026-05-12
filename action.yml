@@ -232,7 +232,7 @@ runs:
         esac
     - id: bootstrap
       name: Bootstrap Postman Assets
-      uses: postman-cs/postman-bootstrap-action@v0.13.0
+      uses: postman-cs/postman-bootstrap-action@main
       env:
         POSTMAN_TEAM_ID: ${{ inputs.postman-team-id }}
       with:

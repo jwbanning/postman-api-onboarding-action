@@ -123,7 +123,9 @@ describe('postman-api-onboarding-action composite contract', () => {
       expect(verifyStep?.id).toBe('release_tag');
       expect(verifyStep?.run).toContain('PUBLISH_TAGS=("$PKG_VERSION")');
       expect(verifyStep?.run).toContain('PUBLISH_TAGS+=("$MAJOR.$MINOR")');
-      expect(verifyStep?.run).toContain('if [ "$TAG_VERSION" = "$MAJOR" ]; then');
+      expect(verifyStep?.run).toContain('if [ "$TAG_VERSION" = "0" ]; then');
+      expect(verifyStep?.run).not.toContain('if [ "$TAG_VERSION" = "$MAJOR" ]; then');
+      expect(verifyStep?.run).not.toContain('or v$MAJOR');
       expect(verifyStep?.run).toContain('npm_publish=true');
       expect(verifyStep?.run).toContain('npm_publish=false');
       expect(verifyStep?.run).toContain('skipping npm publish');

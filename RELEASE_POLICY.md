@@ -94,6 +94,13 @@ Phase 1 of the live release gate covers only the actions currently exercised by
 - `postman-repo-sync-action`
 - `postman-smoke-flow-action`
 
+For those repos, pull requests targeting `main` must pass the central live e2e
+gate before approval or merge. The PR workflow dispatches
+`postman-cs/postman-actions-e2e` with the PR head SHA pinned for the changed
+action and waits for the correlated run to succeed. Branches must live in the
+target repository so GitHub can provide the internal e2e dispatch secret; forked
+PRs cannot satisfy the required merge gate until moved to an in-repo branch.
+
 For those repos, immutable publishing tags must pass the central live e2e gate
 before any GitHub release, npm package, or release tarball is published. The
 release workflow validates locally, dispatches the central e2e workflow with the

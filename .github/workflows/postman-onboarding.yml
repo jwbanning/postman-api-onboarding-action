@@ -18,7 +18,7 @@ jobs:
           project-name: my-api-service         # Your service name
           domain: my-domain                    # Business domain
           domain-code: MD                      # Short prefix for workspace naming
-          workspace-team-id: 132109
+          workspace-team-id: 13347347
           spec-url: https://petstore3.swagger.io/api/v3/openapi.json  # URL to your OpenAPI spec
           environments-json: '["prod","staging"]'
           postman-api-key: ${{ secrets.POSTMAN_API_KEY }}

@@ -1,0 +1,18 @@
+workspace:
+  id: 9136f9da-569d-41b9-8dc5-1d1bc5508970
+localResources:
+  collections:
+    - ../postman/collections/[Baseline] my-api-service
+    - ../postman/collections/[Smoke] my-api-service
+    - ../postman/collections/[Contract] my-api-service
+  environments:
+    - ../postman/environments/prod.postman_environment.json
+    - ../postman/environments/staging.postman_environment.json
+cloudResources:
+  collections:
+    ../postman/collections/[Baseline] my-api-service: 44540166-b6357702-e347-4f47-a78c-65f85058192a
+    ../postman/collections/[Smoke] my-api-service: 44540166-31161dd5-4766-4613-a0ef-133ec8faf0ef
+    ../postman/collections/[Contract] my-api-service: 44540166-84c4c0a7-e845-4122-bc08-41dc529f78aa
+  environments:
+    ../postman/environments/prod.postman_environment.json: 44540166-44ac03a4-ffce-4de5-99c7-d9c7002a6bc8
+    ../postman/environments/staging.postman_environment.json: 44540166-1f1be1df-6cff-48ae-a114-db9c789a3fb9

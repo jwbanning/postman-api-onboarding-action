@@ -1,0 +1,25 @@
+name: Postman API Onboarding
+
+on:
+  workflow_dispatch:  # Trigger manually, or change to push/schedule as needed
+
+jobs:
+  onboarding:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: postman-cs/postman-api-onboarding-action@v0
+        with:
+          project-name: my-api-service         # Your service name
+          domain: my-domain                    # Business domain
+          domain-code: MD                      # Short prefix for workspace naming
+          spec-url: https://example.com/openapi.yaml  # URL to your OpenAPI spec
+          environments-json: '["prod","staging"]'
+          postman-api-key: ${{ secrets.POSTMAN_API_KEY }}
+          postman-access-token: ${{ secrets.POSTMAN_ACCESS_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
